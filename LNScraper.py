@@ -33,13 +33,31 @@ def chapter_walk(start, end, root):
         soup = BeautifulSoup(visit_url(chapter), "html.parser")
         chapter_div = soup.find_all("div", {"class": "chapter-content"})
         chapter_text = chapter_div[0].get_text(separator="\n")
-        print(chapter_text)
-        #print("CHAPTER: ", i)
-        #print("\n")
         #print(chapter_text)
-        # pdf.cell(200, 10, txt = "CHAPTER: " + str(i),
-        #  ln = 1, align = 'C')
+        
         pdf.multi_cell(0, 7.5, txt = chapter_text, align="C")
         pdf.output("Chapter-" + str(i) + ".pdf")
 
-chapter_walk(1, 3, "https://www.lightnovelworld.com/novel/sword-god-in-a-world-of-magic-1377/")
+def construct_url(book, host):
+     host_extra = ""
+     if host == "lightnovelworld":
+          host_extra = "novel"
+
+     url = "https://www." + host + ".com/" + host_extra + "/" + book + "/"
+
+     return url
+
+
+
+def scrape_chapters(book, host, start, end):
+     
+
+     chapter_walk(start, end, construct_url(book, host))
+
+
+
+
+
+#chapter_walk(1, 3, "https://www.lightnovelworld.com/novel/sword-god-in-a-world-of-magic-1377/")
+
+scrape_chapters("sword-god-in-a-world-of-magic-1377", "lightnovelworld", 4, 10)
