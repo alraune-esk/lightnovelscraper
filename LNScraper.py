@@ -4,6 +4,10 @@ import urllib, sys, os, re
 
 header = {'User-agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.1.5) '
                                          'Gecko/20091102 Firefox/3.5.5'}
+
+HOST_SPECIFIC_EXTRA = {"lightnovelworld": "novel", "lightnovelpub": "novel"}
+
+
 def visit_url(url):
         """
         http://stackoverflow.com/questions/7933417/how-do-i-set-headers-using-pythons-urllib
@@ -34,14 +38,15 @@ def chapter_walk(start, end, root):
         chapter_div = soup.find_all("div", {"class": "chapter-content"})
         chapter_text = chapter_div[0].get_text(separator="\n")
         #print(chapter_text)
-        
+        pdf.set_text_color(100, 0, 0)
         pdf.multi_cell(0, 7.5, txt = chapter_text, align="C")
+        
         pdf.output("Chapter-" + str(i) + ".pdf")
 
 def construct_url(book, host):
      host_extra = ""
-     if host == "lightnovelworld":
-          host_extra = "novel"
+     if host in HOST_SPECIFIC_EXTRA:
+          host_extra = HOST_SPECIFIC_EXTRA[host]
 
      url = "https://www." + host + ".com/" + host_extra + "/" + book + "/"
 
@@ -51,7 +56,6 @@ def construct_url(book, host):
 
 def scrape_chapters(book, host, start, end):
      
-
      chapter_walk(start, end, construct_url(book, host))
 
 
