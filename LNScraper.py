@@ -87,4 +87,4 @@ scrape_chapters("sword-god-in-a-world-of-magic-1377", "lightnovelpub.com", 4, 10
 
 # img = Image.new("RGB", (210, 297), "#000000")
 # img.save("black_background.png")
-print("end")
+print("Finished Downloading Chapters")
