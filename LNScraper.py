@@ -61,3 +61,4 @@ def scrape_chapters(book, host, start, end):
 #chapter_walk(1, 3, "https://www.lightnovelworld.com/novel/sword-god-in-a-world-of-magic-1377/")
 
 scrape_chapters("sword-god-in-a-world-of-magic-1377", "lightnovelworld", 4, 10)
+scrape_chapters("sword-god-in-a-world-of-magic-1377", "lightnovelworld", 4, 10)
