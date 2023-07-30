@@ -78,10 +78,6 @@ def scrape_chapters(book, host, start, end, dest, dark_mode):
 
 #chapter_walk(1, 3, "https://www.lightnovelworld.com/novel/sword-god-in-a-world-of-magic-1377/")
 
-<<<<<<< HEAD
-scrape_chapters("sword-god-in-a-world-of-magic-1377", "lightnovelworld", 4, 10)
-scrape_chapters("sword-god-in-a-world-of-magic-1377", "lightnovelworld", 4, 10)
-=======
 scrape_chapters("sword-god-in-a-world-of-magic-1377", "lightnovelworld.com", 4, 10, "lightnovelworld", True)
 
 
@@ -91,4 +87,4 @@ scrape_chapters("sword-god-in-a-world-of-magic-1377", "lightnovelpub.com", 4, 10
 
 # img = Image.new("RGB", (210, 297), "#000000")
 # img.save("black_background.png")
->>>>>>> 7c301a7b9519c79a56db62e6d06642fd1195887b
+print("end")
