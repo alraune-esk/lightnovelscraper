@@ -2,6 +2,7 @@ from fpdf import FPDF
 from bs4 import BeautifulSoup
 import urllib, sys, os, re
 from PIL import Image
+import time
 
 header = {'User-agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.1.5) '
                                          'Gecko/20091102 Firefox/3.5.5'}
@@ -73,7 +74,26 @@ def scrape_chapters(book, host, start, end, dest, dark_mode):
      chapter_walk(start, end, construct_url(book, host), dest, dark_mode)
 
 
+# def chapter_list_scraping(url):
+#      url_list = []
+#      soup = BeautifulSoup(visit_url(url), "html.parser")
+#      class_soup = soup.find_all("a", class_ ="block transition hover:bg-neutral-800")
+#      for a in class_soup:
 
+#           print(a['href'])
+#           url_list.append(a['href'])
+#      count = 16
+#      url_list = reversed(url_list)
+#      for chapter in url_list:
+#           req = urllib.request.Request(url=chapter, headers=header)
+#           print(chapter)
+#           url_read = urllib.request.urlopen(req).read()
+#           webContent = url_read.decode('UTF-8')
+#           count += 1
+#           f = open("Chapter" + " " + str(count) +".html", 'w')
+#           f.write(webContent)
+#           f.close
+#           time.sleep(1)
 
 
 #chapter_walk(1, 3, "https://www.lightnovelworld.com/novel/sword-god-in-a-world-of-magic-1377/")
